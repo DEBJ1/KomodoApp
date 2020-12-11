@@ -1,0 +1,2 @@
+C:\ElevenFiftyProjects\KomodoProject\KomodoRepo\obj\Debug\KomodoRepo.csprojAssemblyReference.cache
+C:\ElevenFiftyProjects\KomodoProject\KomodoRepo\obj\Debug\KomodoRepo.csproj.CoreCompileInputs.cache
