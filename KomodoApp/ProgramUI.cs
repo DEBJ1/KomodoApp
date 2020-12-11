@@ -171,15 +171,15 @@ namespace KomodoApp
 
             Console.WriteLine("Enter the unique ID of the Developer Team you'd like to see:");
 
-            string iD = Console.ReadLine();
+            int iD = Convert.ToInt32(Console.ReadLine()); 
 
-           DevelopersTeamsRepository devTeam = _DeveloperRepo.getDeveloperTeamsByID(iD);
+           DevelopersTeams devTeam = _DevTeamRepo.getDeveloperTeamsByID(iD);
 
             if (devTeam != null)
             {
-                Console.WriteLine($"Name: {devTeam.teamName},\n" +
-                    $" ID Number: {devTeam.teamID}\n");
-                foreach (Developers dev in devTeam.DevelopersTeamMembers)
+                Console.WriteLine($"Name: {devTeam.TeamName},\n" +
+                    $" ID Number: {devTeam.TeamID}\n");
+                foreach (Developers dev in devTeam.DevTeamMembers)
                 {
                     Console.WriteLine($"{dev.Name}, {dev.IDNumber}\n");
                 }
@@ -260,15 +260,15 @@ namespace KomodoApp
         private void addNewDevsTeam()
         {
             Console.Clear();
-            DevelopersTeams newDevTeam = new DevelopersTeams ();
+            DevelopersTeams newDevTeam = new DevelopersTeams();
             
             //Name
             Console.WriteLine("Enter the name of the Developer Team:");
-            newDevTeam.teamName = Console.ReadLine();
+            newDevTeam.TeamName = Console.ReadLine();
 
             //ID Number
             Console.WriteLine("Enter the ID number for the Developer Team:");
-            newDevTeam.TeamsID = Console.ReadLine();
+            newDevTeam.TeamID = Convert.ToInt32(Console.ReadLine());
 
             //Add to Team List
             displayAllDevs();
@@ -276,7 +276,7 @@ namespace KomodoApp
 
             string responseID = Console.ReadLine();
             Developers developer = _DeveloperRepo.GetDeveloperByID(responseID);
-            newDevTeam.DevTeamsMembers.Add(developer);
+            newDevTeam.DevTeamMembers.Add(developer);
 
             _DevTeamRepo.AddDevsTeamToList(newDevTeam);
         }
@@ -284,7 +284,7 @@ namespace KomodoApp
         {
             Console.Clear();
 
-            List<DevelopersTeams> listOfTeams = _devTeams.GetDevTeamsList();
+            List<DevelopersTeams> listOfTeams = _DevTeamRepo.GetDevTeamsList();
 
             foreach (DevelopersTeams devTeam in listOfTeams)
             {
@@ -292,9 +292,9 @@ namespace KomodoApp
                     $" ID Number: {devTeam.TeamID}\n" +
                     $" Members: {devTeam.DevTeamMembers}");*/
 
-                Console.WriteLine($"Name: {devTeam.teamName},\n" +
-                    $" ID Number: {devTeam.teamID}\n");
-                foreach (Developers dev in devTeam.DevTeamsMembers)
+                Console.WriteLine($"Name: {devTeam.TeamName},\n" +
+                    $" ID Number: {devTeam.TeamID}\n");
+                foreach (Developers dev in devTeam.DevTeamMembers)
                 {
                     Console.WriteLine($"{dev.Name}, {dev.IDNumber}\n");
                 }
@@ -306,15 +306,15 @@ namespace KomodoApp
 
             Console.WriteLine("Enter the ID of the Developer Team you'd like to see:");
 
-            string iD = Console.ReadLine();
+            int iD = Convert.ToInt32(Console.ReadLine());
 
-            DevelopersTeamsRepository devTeam = _DevelopersTeamsRepository.getDeveloperTeamsByID(iD);
+            DevelopersTeams devTeam = _DevTeamRepo.getDeveloperTeamsByID(iD);
 
             if (devTeam != null)
             {
-                Console.WriteLine($"Name: {devTeam.teamName},\n" +
-                    $" ID Number: {devTeam.teamID}\n");
-                foreach (Developers dev in devTeam.DeveloperTeamMembers)
+                Console.WriteLine($"Name: {devTeam.TeamName},\n" +
+                    $" ID Number: {devTeam.TeamID}\n");
+                foreach (Developers dev in devTeam.DevTeamMembers)
                 {
                     Console.WriteLine($"{dev.Name}, {dev.IDNumber}\n");
                 }
@@ -334,18 +334,18 @@ namespace KomodoApp
             Console.WriteLine("\nEnter the  ID of the Developer Team you'd like to update:");
 
             //Get that Name
-            string oldID = Console.ReadLine();
+            int oldID = Convert.ToInt32(Console.ReadLine());
 
             //Build a new object
-            DevelopersTeamsRepository newDevTeam = new DevelopersTeamsRepository();
+            DevelopersTeams newDevTeam = new DevelopersTeams();
 
             //Name
             Console.WriteLine("Enter the name of the Developer Team:");
-            newDevTeam.teamName = Console.ReadLine();
+            newDevTeam.TeamName = Console.ReadLine();
 
             //ID Number
             Console.WriteLine("Enter the ID number for the Developer Team:");
-            newDevTeam.teamID = Console.ReadLine();
+            newDevTeam.TeamID = Convert.ToInt32(Console.ReadLine());
 
             //Current Team Members
             displayAllDevs();
@@ -373,7 +373,7 @@ namespace KomodoApp
 
             Console.WriteLine("\nEnter the ID of the Developer Team you'd like to remove");
 
-            string input = Console.ReadLine();
+            int input = Convert.ToInt32(Console.ReadLine());
 
             //Call the Delete Method
             bool wasDeleted = _DevTeamRepo.RemoveDevTeamFromList(input);
@@ -399,10 +399,10 @@ namespace KomodoApp
             Console.WriteLine("\nEnter the ID of the Developer Team you'd like to add a member to:");
 
             //Get that Name
-            string oldID = Console.ReadLine();
+            int oldID = Convert.ToInt32(Console.ReadLine());
 
             //Call Object
-            DevelopersTeamsRepository newDevTeam = _DevTeamRepo.GetDevTeamByID(oldID);
+            DevelopersTeams newDevTeam = _DevTeamRepo.getDeveloperTeamsByID(oldID);
 
             //Current Team Members
             displayAllDevs();
@@ -433,10 +433,10 @@ namespace KomodoApp
             Console.WriteLine("\nEnter the ID of the DevTeam you'd like to remove a member from:");
 
             //Get that Name
-            string oldID = Console.ReadLine();
+            int oldID = Convert.ToInt32(Console.ReadLine());
 
             //Call Object
-            DevelopersTeamsRepository newDevTeam = _DevTeamRepo.GetDevTeamByID(oldID);
+            DevelopersTeams newDevTeam = _DevTeamRepo.getDeveloperTeamsByID(oldID);
 
             //Current Team Members
             displayAllDevs();
@@ -444,10 +444,10 @@ namespace KomodoApp
 
             string responseID = Console.ReadLine();
             Developers developer = _DeveloperRepo.GetDeveloperByID(responseID);
-            newDevTeam.DevsTeamsMembers.Remove(developer);
+            newDevTeam.DevTeamMembers.Remove(developer);
 
             //Verify update worked
-            bool updateWorked = _DevTeamRepo.UpdateExistingDevTeams(oldID, newDevTeam);
+            bool updateWorked = _DevTeamRepo.updateExistingDevsTeams(oldID, newDevTeam);
 
             if (updateWorked)
             {

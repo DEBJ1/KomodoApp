@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace KomodoRepo
 {
-    class DevelopersTeams
+   public class DevelopersTeams
     {
         public string TeamName { get; set; }
-        public string TeamID { get; set; }
+        public int TeamID { get; set; }
         public List<Developers> DevTeamMembers { get; set; } = new List<Developers>();
 
         public DevelopersTeams() { }
-        public DevelopersTeams(string teamName, string teamID)
+        public DevelopersTeams(string teamName, int teamID)
         {
             TeamName = teamName;
             TeamID = teamID;

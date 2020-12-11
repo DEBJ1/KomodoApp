@@ -25,10 +25,10 @@ namespace KomodoRepo
         }
 
         //DevTeam Update
-        public bool updateExistingDevsTeams(string originalID, DevelopersTeams newID)
+        public bool updateExistingDevsTeams(int originalID, DevelopersTeams newID)
         {
             //Find the content
-            DevelopersTeams oldID = GetDevsTeamByID(originalID);
+            DevelopersTeams oldID = getDeveloperTeamsByID(originalID);
 
             //Update the content
             if (oldID != null)
@@ -46,9 +46,9 @@ namespace KomodoRepo
         }
 
         //DevTeam Delete
-        public bool RemoveDevTeamFromList(string iD)
+        public bool RemoveDevTeamFromList(int iD)
         {
-            DevelopersTeams devTeam = GetDevTeamByID(iD);
+            DevelopersTeams devTeam = getDeveloperTeamsByID(iD);
 
             if (devTeam == null)
             {
@@ -70,11 +70,11 @@ namespace KomodoRepo
 
         //DevTeam Helper (Get Team by ID)
 
-        public DevelopersTeams getDeveloperTeamsByID(string iD)
+        public DevelopersTeams getDeveloperTeamsByID(int iD)
         {
             foreach (DevelopersTeams devTeam in _devTeams)
             {
-                if (devTeam.TeamID.ToLower() == iD.ToLower())
+                if (devTeam.TeamID == iD)
                 {
                     return devTeam;
                 }

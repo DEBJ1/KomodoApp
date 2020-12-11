@@ -1,2 +1,10 @@
 C:\ElevenFiftyProjects\KomodoProject\KomodoApp\obj\Debug\KomodoApp.csprojAssemblyReference.cache
 C:\ElevenFiftyProjects\KomodoProject\KomodoApp\obj\Debug\KomodoApp.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\KomodoProject\KomodoApp\bin\Debug\KomodoApp.exe.config
+C:\ElevenFiftyProjects\KomodoProject\KomodoApp\bin\Debug\KomodoApp.exe
+C:\ElevenFiftyProjects\KomodoProject\KomodoApp\bin\Debug\KomodoApp.pdb
+C:\ElevenFiftyProjects\KomodoProject\KomodoApp\bin\Debug\KomodoRepo.dll
+C:\ElevenFiftyProjects\KomodoProject\KomodoApp\bin\Debug\KomodoRepo.pdb
+C:\ElevenFiftyProjects\KomodoProject\KomodoApp\obj\Debug\KomodoApp.csproj.CopyComplete
+C:\ElevenFiftyProjects\KomodoProject\KomodoApp\obj\Debug\KomodoApp.exe
+C:\ElevenFiftyProjects\KomodoProject\KomodoApp\obj\Debug\KomodoApp.pdb
